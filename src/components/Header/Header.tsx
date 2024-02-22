@@ -1,7 +1,7 @@
-const Header = () => {
+export default function Header() {
     return (
-        <div>헤더영역</div>
+        <div>
+
+        </div>
     );
 }
-
-export default Header;
