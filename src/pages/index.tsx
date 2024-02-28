@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import axios from "axios";
+import Head from "next/head";
 
 export async function getServerSideProps(context: any) {
     // const res = await fetch('http://localhost:3001/category', {
@@ -11,7 +12,7 @@ export async function getServerSideProps(context: any) {
     }
     // const data = await res.json();
     const data = await res.data;
-    console.log(data)
+    // console.log(data)
 
     return {
         props: {
@@ -20,11 +21,10 @@ export async function getServerSideProps(context: any) {
     };
 }
 
-export default function Home({data}) {
+export default function Home({ data }) {
   return (
-      <>
-          <Header>
-          </Header>
+      <div>
+          <Header data={ data }/>
           <div>
               {data.map((value) => (
                   <div key={value.cateCd}>
@@ -32,6 +32,6 @@ export default function Home({data}) {
                   </div>
               ))}
           </div>
-      </>
+      </div>
   );
 }
